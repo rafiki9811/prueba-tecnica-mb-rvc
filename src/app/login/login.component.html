@@ -1,0 +1,91 @@
+<div class="login-container">
+    <div class="top">
+        <div class="logo-txt">
+            <h2>LOGO</h2>
+        </div>
+        <div class="menu-icon">
+            <i class="fa-solid fa-bars fa-2xl"></i>
+        </div>
+    </div>
+
+    <div class="middle">
+        <div class="login-img-container">
+            <!-- <img src="login-image.png" alt=""> -->
+        </div>
+        <form #LoginForm="ngForm" (submit)="Login()">
+            <div class="login-form">
+                <div class="form-container">
+                    <div>
+                        <h3>Inicia sesion</h3>
+                    </div>
+                    <div>
+                        <p>Email o nombre de usuario</p>
+                        <input class="login-input" 
+                        type="email" 
+                        placeholder=" Email o nombre de usuario"
+                        [class.is-valid]="username.valid && isFocusedUserInput"
+                        [class.is-invalid]="!username.valid && isFocusedUserInput"
+                        (focus)="isFocusedUserInput=true"
+                        [(ngModel)] ="loginPayload.username"
+                        name="username"
+                        #username="ngModel"
+                        autocomplete="off"
+                        required
+                        >
+                    </div>
+                    <div>
+                        <p>Contraseña</p>
+                        <input class="login-input" 
+                        type="password" 
+                        placeholder=" Contraseña"
+                        [class.is-valid]="password.valid && isFocusedPassInput"
+                        [class.is-invalid]="!password.valid && isFocusedPassInput"
+                        (focus)="isFocusedPassInput=true"
+                        [(ngModel)] ="loginPayload.password"
+                        name="password"
+                        #password="ngModel"
+                        autocomplete="off"
+                        required
+                        >
+                    </div>
+                    <div class="remember-container">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <p>Recuerdame</p>
+                    </div>
+                    <div>
+                        <button class="login-btn" type="submit" 
+                        (keyup.enter)="Login()"
+                        [disabled]="!LoginForm.form.valid"
+                        >
+                            <h4>INICIAR SESIÓN</h4>
+                        </button>
+                        <p style="font-size: small; font-family: 'Inter'; color:#00000099; margin-bottom: 4pc;">
+                            ¿Olvidaste tu contraseña?</p>
+                    </div>
+                    <div class="register-container">
+                        <p style="font-size: small; font-family: 'Inter'; color:#00000099;">¿No tienes una cuenta?</p>
+                        <button (click)="goRegisterPage()">
+                            REGISTRARSE
+                        </button>
+                    </div>
+                    <label>Inicia sesion con tus redes sociales</label>
+                    <div class="social-media-buttons">
+                        <button class="google">
+                            <img width="35" height="35" src="https://img.icons8.com/fluency/48/google-logo.png"
+                                alt="google-logo" />
+                        </button>
+                        <button class="fb">
+                            <i class="fa-brands fa-facebook fa-2xl" style="color: #ffffff;"></i>
+                        </button>
+                        <button class="apple">
+                            <i class="fa-brands fa-apple fa-2xl" style="color: #ffffff;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

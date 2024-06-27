@@ -1,0 +1,8 @@
+{
+    "/api": {
+      "target": "https://prueba.sandboxmb.com",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }
